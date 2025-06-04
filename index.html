@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Messaging</title>
+    <META HTTP-EQUIV='Content-Security-Policy' CONTENT="connect-src https://*.nr-data.net https://shyrka-prod.s3.amazonaws.com https://*.newrelic.com https://*.mypurecloud.com https://*.use1.pure.cloud wss://*.mypurecloud.com wss://*.use1.pure.cloud; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/ *.lableo.com https://*.nr-data.net https://*.newrelic.com https://*.mypurecloud.com https://*.use1.pure.cloud; media-src https://*.mypurecloud.com https://*.use1.pure.cloud; object-src https://*.mypurecloud.com https://*.use1.pure.cloud; child-src https://*.mypurecloud.com https://*.use1.pure.cloud; img-src https://*.mypurecloud.com
+https://*.use1.pure.cloud;"> 
+  <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col">
+          <h1 class="title">Cobrowse Voz</h1>
+        </div>
+      </div>
+      <div class="row" id="rowDeployment">
+        <div class="col ">
+          <div class="input" >
+            <input
+              type="text"
+              class="textmsgenabled"
+              id="cobrowsePIN"
+              size="6"
+              placeholder="Cobrowse PIN?"
+            />
+          </div>
+        </div>
+        <div class="col ">
+          <div class="padding-xl mt-3 ">
+          <button class="btn btn-primary" id="bntIniciar" onclick="BtnInciarCobrowse()">Iniciar</button>
+          <button class="btn btn-primary" id="bntDetener" onclick="BtnDetenerCobrowse()">Detener</button>
+          </div>
+          <div class="padding-xl mt-3 "><label for="cars">Choose a car:</label>
+                <select name="cars" id="cars">
+                  <optgroup label="Swedish Cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                  </optgroup>
+                  <optgroup label="German Cars">
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                  </optgroup>
+                </select>
+        </div>
+      </div>
+      <div class="row pt-3">
+        <div class="col">
+          <div class="p-2"><label class="fw-bold" >Monto:</label> </div>
+          <div class="p-2"><label class="fw-bold" >Tarjeta</label></div>
+          <div class="p-2"><label class="fw-bold" >CVV</label> </div>
+        </div>
+        <div class="col">
+          <div class="p-2 "><label class="privado">999998.88</label> </div>
+          <div class="p-2 "><label class="privado">5105105105105100</label> </div>
+          <div class="p-2 "><label class="privado">555</label> </div>
+        </div>
+        <div class="col-8"></div>
+      </div>
+      <div class="row p-lg-2">
+        <div class="col">
+          <div class="row p-2 border bg-secondary bg-gradient fw-bold ">Fecha</div>
+          <div class="row p-2 border" >01/05/2023</div>
+          <div class="row p-2 border" >01/06/2023</div>
+          <div class="row p-2 border" >01/07/2023</div>
+        </div>
+        <div class="col">
+          <div class="row p-2 border bg-secondary bg-gradient fw-bold">Descripcion</div>
+          <div class="row p-2 border">debito</div>
+          <div class="row p-2 border">credito</div>
+          <div class="row p-2 border">debito</div>
+        </div>
+        <div class="col">
+          <div class="row p-2 border bg-secondary bg-gradient fw-bold">Monto</div>
+          <div class="row p-2 border privado">777.88</div>
+          <div class="row p-2 border privado">555.99</div>
+          <div class="row p-2 border privado">333.44</div>
+        </div>
+        <div class="col-6"></div>
+      </div>
+
+      <div class="row p-3 border">
+       <div class="col col-lg-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"/>
+      </svg></div>
+      <div class="col col-lg-4">
+            <button class="btn btn-primary"  onclick="BntEscribir('startDrawing')">Escribir</button>
+      </div>
+      <div class="col col-lg-4">
+        <button class="btn btn-primary"  onclick="BntEscribir('stopDrawing')">Detener</button>
+        </div>
+      </div>
+
+
+    </div>
+
+    </div>
+  </body>
+</html>
